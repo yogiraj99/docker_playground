@@ -4,19 +4,37 @@ services:
   web1:
     build: node_app
     ports:
-     - "8080:8080"
+      - "8081:8080"
     depends_on:
       - pgdb
     networks:
-          app_net:
-            ipv4_address: 172.18.0.2
+      app_net:
+        ipv4_address: 172.18.0.3
+  web2:
+    build: node_app
+    ports:
+      - "8082:8080"
+    depends_on:
+      - pgdb
+    networks:
+      app_net:
+        ipv4_address: 172.18.0.4
+  web3:
+    build: node_app
+    ports:
+      - "8083:8080"
+    depends_on:
+      - pgdb
+    networks:
+      app_net:
+        ipv4_address: 172.18.0.5
   pgdb:
     image: "postgres"
     expose:
       - 5432
     networks:
       app_net:
-        ipv4_address: 172.18.0.3
+        ipv4_address: 172.18.0.2
 
 networks:
   app_net:
