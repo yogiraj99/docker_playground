@@ -10,7 +10,7 @@ services:
     environment:
       - CONNETIONSTRING=postgresql://postgres:postgres@pgdb:5432/postgres
     volumes:
-            - ./node_app/:/opt/src/server/
+            - ./node_app/src/:/opt/src/server/src/
   web2:
     build: node_app
     ports:
@@ -20,7 +20,7 @@ services:
     environment:
       - CONNETIONSTRING=postgresql://postgres:postgres@pgdb:5432/postgres
     volumes:
-            - ./node_app/:/opt/src/server/
+            - ./node_app/src/:/opt/src/server/src/
   web3:
     build: node_app
     ports:
@@ -30,7 +30,7 @@ services:
     environment:
       - CONNETIONSTRING=postgresql://postgres:postgres@pgdb:5432/postgres
     volumes:
-            - ./node_app/:/opt/src/server/
+            - ./node_app/src/:/opt/src/server/src/
   pgdb:
     image: "postgres"
     expose:
