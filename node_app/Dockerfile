@@ -1,5 +1,7 @@
 FROM node
 
+WORKDIR /opt/src/server
+
 COPY package.json package.json
 
 RUN npm install
